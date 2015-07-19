@@ -70,6 +70,12 @@ public class WordCount2 {
       for (String pattern : patternsToSkip) {
         line = line.replaceAll(pattern, "");
       }
+      StringTokenizer itr = new StringTokenizer(line);
+      while (itr.hasMoreTokens()) {
+        word.set(itr.nextToken());
+        context.write(word, one);
+        Counter counter = context.getCounter(CountersEnum.class
+      }
     }
 
 } 
