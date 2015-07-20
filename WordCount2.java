@@ -74,7 +74,9 @@ public class WordCount2 {
       while (itr.hasMoreTokens()) {
         word.set(itr.nextToken());
         context.write(word, one);
-        Counter counter = context.getCounter(CountersEnum.class
+        Counter counter = context.getCounter(CountersEnum.class.getName(),
+            countersEnum.INPUT_WORDS.toString());
+        counter.increment(1);
       }
     }
 
